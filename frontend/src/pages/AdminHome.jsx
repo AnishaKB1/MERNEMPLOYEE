@@ -16,7 +16,7 @@ const AdminHome = () => {
  },[]);
 
   function fetchPost(){
-   axiosInstance.get('http://localhost:3000/emp').then((res)=>{
+   axiosInstance.get('/emp').then((res)=>{
      setEmployees(res.data);
    
    })
@@ -29,7 +29,7 @@ const AdminHome = () => {
   }
 
  function deletePost (id) {
-   axiosInstance.delete(`http://localhost:3000/emp/delete/${id}`)
+   axiosInstance.delete(`/emp/delete/${id}`)
      .then((res) => {
       alert(res.data);
       fetchPost();

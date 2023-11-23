@@ -24,7 +24,7 @@ function verifytoken(req,res,next){
 
 
 
-router.post('/login',async (req, res) => {
+router.post('/emp/login',async (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -57,7 +57,7 @@ router.post('/login',async (req, res) => {
 
 //CRUD for employee
 
-router.get("/",verifytoken,async (req, res) => {
+router.get("/emp/",verifytoken,async (req, res) => {
     try {
       const getemployee = await employeedata.find();
       res.json(getemployee);
@@ -66,7 +66,7 @@ router.get("/",verifytoken,async (req, res) => {
     }
   });
   
-router.post('/add',verifytoken,async (req, res) => {
+router.post('/emp/add',verifytoken,async (req, res) => {
     const data = new employeedata({
        name: req.body.name,
         designation: req.body.designation,
@@ -75,7 +75,7 @@ router.post('/add',verifytoken,async (req, res) => {
          email : req.body.email,
          password :req.body.password
     })
-  
+
     try {
         const dataToSave = await data.save();
         res.status(200).send("Updated Successfully")
@@ -88,7 +88,7 @@ router.post('/add',verifytoken,async (req, res) => {
   
   
   
-  router.put("/update/:id",verifytoken,async (req, res) => {
+  router.put("/emp/update/:id",verifytoken,async (req, res) => {
   try {
     // const id = req.params.id;
   const item = req.body;
@@ -101,7 +101,7 @@ router.post('/add',verifytoken,async (req, res) => {
   });
   
   
-  router.delete('/delete/:id',verifytoken,async (req, res) => {
+  router.delete('/emp/delete/:id',verifytoken,async (req, res) => {
   try {
       const id = req.params.id;
       const data = await employeedata.findByIdAndDelete(id);

@@ -36,7 +36,7 @@ const LoginUser = () => {
 
   const addHandler=()=>{
     if (validateForm()) {
-    axiosInstance.post('http://localhost:3000/emp/login',user).then((res)=>{
+    axiosInstance.post('/emp/login',user).then((res)=>{
       console.log('Login response:', res.data);
       alert(res.data.message);
       if (res.data.message === 'success') {
@@ -54,7 +54,7 @@ const LoginUser = () => {
           setUser(' ');
       } else {
           console.error('Error during login:', error);
-          alert('An error occurred. Please try again later.');
+          alert('An error occurred. Pleasery again later.');
           setUser(' ');
       }
   });

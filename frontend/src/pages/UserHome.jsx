@@ -11,7 +11,7 @@ const UserHome = () => {
     },[]);
 
      function fetchPost(){
-      axiosInstance.get('http://localhost:3000/emp/').then((res)=>{
+      axiosInstance.get('/emp').then((res)=>{
         setData(res.data);
         console.log(cardData);
       })
