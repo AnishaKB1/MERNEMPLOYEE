@@ -26,3 +26,4 @@ res.sendFile(path.join(__dirname,'/build/index.html')); });
   const PORT = process.env.PORT;
 app.listen(PORT,()=>{
     console.log(`Server is running on PORT ${PORT}`);
+})
