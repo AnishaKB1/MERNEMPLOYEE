@@ -7,6 +7,7 @@ const app=new express();
 
 const employeedata = require('./model/employee');
 require('dotenv').config();
+app.use(express.static(path.join(__dirname,'/build')));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,7 +18,7 @@ require("./db/connect");
 const emprouter=require('./routes/basic');
 app.use('/emp',emprouter);
 
-app.use(express.static(path.join(__dirname,'/build')));
+
 app.get('/*', function(req, res) {
 res.sendFile(path.join(__dirname,'/build/index.html')); }); 
 
